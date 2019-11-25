@@ -355,6 +355,8 @@ public class BeaconsAndroidModule extends ReactContextBaseJavaModule implements 
       WritableArray a = new WritableNativeArray();
       for (Beacon beacon : beacons) {
           WritableMap b = new WritableNativeMap();
+          b.putString("address", beacon.getBluetoothAddress());
+          b.putString("name", beacon.getBluetoothName());
           b.putString("uuid", beacon.getId1().toString());
           if (beacon.getIdentifiers().size() > 2) {
               b.putInt("major", beacon.getId2().toInt());
